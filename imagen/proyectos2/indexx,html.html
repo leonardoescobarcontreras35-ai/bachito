@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head> 
+    <meta charset="UTF-8">
+    <title>Incendios Forestales en México</title>
+    
+    <style>
+        /* Estilos Generales y Paleta de Colores: #2C302E (Gris) y #E65F2B (Naranja) */
+        body {
+            background-color: #2C302E;
+            color: #FFFFFF;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .contenedor {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        /* Encabezado */
+        .encabezado {
+            background-color: #1A1C1B;
+            padding: 20px 0;
+            border-bottom: 3px solid #E65F2B;
+        }
+
+        .logo img {
+            height: 50px;
+            float: left;
+        }
+
+        .encabezado nav {
+            float: right;
+            margin-top: 15px;
+        }
+
+        .encabezado nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .encabezado nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+        .encabezado nav ul li a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .encabezado nav ul li a:hover {
+            color: #E65F2B;
+        }
+
+        /* Sección Presentación */
+        .presentacion {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #2C302E 50%, #1A1C1B 100%);
+            display: flex;
+            align-items: center;
+        }
+
+        .introduccion-presentacion {
+            float: left;
+            width: 50%;
+        }
+
+        .introduccion-presentacion h1 {
+            font-size: 45px;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+        }
+
+        .introduccion-presentacion h1 span {
+            color: #E65F2B;
+            text-transform: uppercase;
+        }
+
+        .aprender-mas {
+            display: inline-block;
+            background-color: #E65F2B;
+            color: #FFFFFF;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+
+        .aprender-mas:hover {
+            background-color: #FFFFFF;
+            color: #E65F2B;
+        }
+
+        .presentacion img {
+            float: right;
+            width: 40%;
+            border-radius: 8px;
+        }
+
+        /* Acceso Rápido */
+        .acceso-rapido {
+            background-color: #E65F2B;
+            color: #FFFFFF;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .acceso-rapido h2 {
+            color: #FFFFFF;
+            margin-bottom: 30px;
+        }
+
+        .acceso-rapido ul {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .acceso-rapido figure {
+            margin: 10px;
+            width: 200px;
+        }
+
+        .acceso-rapido figure img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #FFFFFF;
+            padding: 10px;
+        }
+
+        .acceso-rapido figure h3 a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .acceso-rapido figure h3 a:hover {
+            text-decoration: underline;
+        }
+
+        /* Bloque Contenido (Artículos y Lateral) */
+        .bloque-contenido {
+            padding: 50px 0;
+        }
+
+        .articulos {
+            float: left;
+            width: 65%;
+        }
+
+        .articulos h2 {
+            color: #E65F2B;
+            border-bottom: 2px solid #E65F2B;
+            padding-bottom: 10px;
+        }
+
+        .articulos article {
+            margin-bottom: 40px;
+            background-color: #1A1C1B;
+            padding: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .articulos article img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .articulos article h1 a {
+            color: #E65F2B;
+            text-decoration: none;
+        }
+
+        .articulos article p {
+            line-height: 1.6;
+            color: #D5D5D5;
+        }
+
+        .complementario {
+            float: right;
+            width: 28%;
+            background-color: #1A1C1B;
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 4px solid #E65F2B;
+        }
+
+        .complementario h2 {
+            color: #E65F2B;
+            font-size: 20px;
+        }
+
+        .complementario ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .complementario ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #2C302E;
+        }
+
+        .complementario ul li a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .complementario ul li a:hover {
+            color: #E65F2B;
+        }
+
+        /* Suscripción / Alertas */
+        .suscripcion {
+            background-color: #1A1C1B;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 2px solid #2C302E;
+        }
+
+        .suscripcion h2 {
+            color: #E65F2B;
+            margin-bottom: 20px;
+        }
+
+        .suscripcion input[type="text"], .suscripcion input[type="email"] {
+            padding: 10px;
+            width: 250px;
+            margin: 5px;
+            border: 1px solid #2C302E;
+            background-color: #2C302E;
+            color: #FFFFFF;
+            border-radius: 4px;
+        }
+
+        .suscripcion input[type="submit"] {
+            background-color: #E65F2B;
+            color: #FFFFFF;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .suscripcion input[type="submit"]:hover {
+            background-color: #FFFFFF;
+            color: #E65F2B;
+        }
+
+        /* Pie de página */
+        .piedepagina {
+            background-color: #111312;
+            padding: 30px 0;
+            font-size: 14px;
+            color: #888888;
+        }
+
+        .piedepagina small {
+            float: left;
+            margin-top: 10px;
+        }
+
+        .piedepagina nav {
+            float: right;
+        }
+
+        .piedepagina nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .piedepagina nav ul li {
+            display: inline;
+            margin-left: 15px;
+        }
+
+        .piedepagina nav ul li a {
+            color: #888888;
+            text-decoration: none;
+        }
+
+        .piedepagina nav ul li a:hover {
+            color: #E65F2B;
+        }
+
+        /* Redes Sociales flotantes o abajo */
+        .social {
+            text-align: center;
+            background-color: #111312;
+            padding-bottom: 20px;
+        }
+
+        .social a img {
+            width: 30px;
+            margin: 0 10px;
+            transition: transform 0.2s;
+        }
+
+        .social a img:hover {
+            transform: scale(1.2);
+        }
+    </style>
+    </head>
+<body>
+ <header class="encabezado" role="banner">
+    <div class="contenedor">
+        <a href="#" class="logo">
+            <img src="imagen/logo_prevencion.jpg" alt="Logotipo Prevención Incendios">
+        </a>
+        <nav role="navigation">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Estadísticas</a></li>
+                <li><a href="#">Reportar</a></li>
+            </ul>
+        </nav>
+    </div>
+ </header>
+ <div class="presentacion">
+    <div class="contenedor">
+        <div class="introduccion-presentacion">
+            <h1>Incendios Forestales<br><span>México</span></h1>
+            <a href="https://www.gob.mx/conafor" class="aprender-mas" target="_blank">CONAFOR</a>
+        </div>
+        <img src="imagen/logo_prevencion.png" alt="Brigadista combatiendo fuego">
+    </div>
+ </div> 
+    <section class="acceso-rapido">
+        <div class="contenedor">
+            <h2>Acceso rápido</h2>
+            <ul>
+                <figure>
+                    <a href="#"><img src="imagen/icono_prevencion.jpg" alt="Prevención"></a>
+                    <figcaption><h3><a href="#">Prevención</a></h3></figcaption>
+                </figure>
+                <figure>
+                    <a href="#"><img src="imagen/icono_mapa.jpg" alt="Zonas de Riesgo"></a>
+                    <figcaption><h3><a href="#">Zonas de Riesgo</a></h3></figcaption>
+                </figure>
+                <figure>
+                    <a href="#"><img src="imagen/icono_reporte.jpg" alt="Reportar Emergencia"></a>
+                    <figcaption><h3><a href="#">Reportar</a></h3></figcaption>
+                </figure>
+                <figure>
+                    <a href="#"><img src="imagen/icono_voluntario.jpg" alt="Voluntariado"></a>
+                    <figcaption><h3><a href="#">Voluntariado</a></h3></figcaption>
+                </figure>
+            </ul>
+        </div>
+    </section>  
+    <div class="bloque-contenido">
+        <div class="contenedor">
+            <main class="articulos" role="main">
+                <h2>Últimas Noticias y Situación Actual</h2>
+                <article>
+                    <img src="imagen/causas_incendio.jpg" alt="Causas del fuego">
+                    <h1><a href="#">Principales Causas</a></h1>
+                    <p>Los incendios forestales en territorio mexicano se originan principalmente por actividades humanas y factores climáticos. Entre las causas más comunes se encuentran las quemas agrícolas no controladas, fogatas de excursionistas mal apagadas, colillas de cigarro arrojadas en carreteras y actos de vandalismo. El aumento de temperaturas por el cambio climático acelera la propagación del fuego.
+                    </p>
+                </article>
+                <article>
+                    <img src="imagen/impacto_ambiental.jpg" alt="Impacto ambiental">
+                    <h1><a href="#">Impacto Ecológico y Social</a></h1>
+                    <p>El impacto va más allá de la pérdida de árboles. Los incendios destruyen el hábitat de cientos de especies de fauna endémica, aceleran la erosión del suelo afectando los ciclos del agua, y generan graves problemas de contaminación del aire en zonas urbanas cercanas. Comunidades rurales enteras pierden su sustento económico derivado de los recursos forestales.
+                    </p>
+                </article>
+                <article>
+                    <img src="imagen/soluciones_prevencion.jpg" alt="Soluciones y combate">
+                    <h1><a href="#">Acciones y Soluciones</a></h1>
+                    <p>La prevención es la herramienta más efectiva. Se requiere fortalecer las brechas cortafuegos, capacitar constantemente a los brigadistas comunitarios de la CONAFOR y aplicar sanciones severas a quienes inicien fuegos de manera imprudencial. Como ciudadano, evitar encender fogatas en temporadas secas (de marzo a mayo) reduce drásticamente el riesgo.
+                    </p>
+                </article>
+            </main>
+            <aside class="complementario" role="complementary">
+          <h2>Teléfonos e Información</h2>
+          <ul>
+            <li><a href="#">Emergencias 911</a></li>
+            <li><a href="#">Reportes CONAFOR</a></li>
+            <li><a href="#">Protección Civil</a></li>
+            <li><a href="#">Monitoreo de Calidad del Aire</a></li>
+            <li><a href="#">Mapas en Tiempo Real</a></li>
+            <li><a href="#">Manual de Evacuación</a></li>
+            <li><a href="#">Centros de Acopio</a></li>
+         </ul>
+      </aside>
+      </div>
+    </div> 
+<section class="suscripcion">
+    <div class="contenedor">
+        <h2>Recibe Alertas de Riesgo en tu Correo</h2>
+        <form action="#">
+            <input type="text" name="nombre" placeholder="Ingresa tu nombre..." required>
+            <input type="email" name="email" placeholder="Ingresa tu correo..." required>
+            <input type="submit" name="valor" value="Suscribirme">
+        </form>
+    </div>
+</section> <footer class="piedepagina" role="contentinfo">
+    <div class="contenedor">
+        <small>Copyright &copy; 2026 Brigada de Concientización Forestal - México</small>
+        <nav>
+            <ul>
+                <li><a href="#">Políticas del sitio</a></li>
+                <li><a href="#">Preguntas frecuentes</a></li>
+                <li><a href="#">Contacto de Emergencia</a></li>
+            </ul>
+        </nav>
+    </div>
+</footer>
+           <div class="social">
+    <a href="#" title="FaceBook"><img src="imagen/face.jpg" alt="facebook"></a>
+    <a href="#" title="Youtube"><img src="imagen/you.jpg" alt="youtube"></a>
+    <a href="#" title="Twitter"><img src="imagen/twit.jpg" alt="twitter"></a>
+</div>
+  </body>
+</html>

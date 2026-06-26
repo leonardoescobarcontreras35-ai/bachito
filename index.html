@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="es">
+<head> 
+    <meta charset="UTF-8">
+    <title>Prevención de Incendios Forestales</title>
+    <style>
+        /* --- PALETA DE COLORES DE LAS CAPTURAS --- */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #FFFFFF;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: #D9531E; /* Naranja Alerta */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #2E6F40; /* Verde Bosque */
+        }
+
+        .contenedor {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        /* --- Encabezado (Header) --- */
+        .encabezado {
+            background-color: #2E6F40;
+            padding: 15px 0;
+        }
+
+        .encabezado .contenedor {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .encabezado nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .encabezado nav ul li {
+            margin-left: 20px;
+        }
+
+        .encabezado nav ul li a {
+            color: #FFFFFF;
+            padding: 8px 16px;
+            font-weight: normal;
+        }
+
+        .encabezado nav ul li a:hover {
+            background-color: #D9531E;
+            border-radius: 4px;
+            color: #FFFFFF;
+        }
+
+        /* --- Sección Presentación (Hero) --- */
+        .presentacion {
+            background-color: #D9531E;
+            color: #FFFFFF;
+            padding: 60px 0;
+        }
+
+        .presentacion .contenedor {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .introduccion-presentacion h1 {
+            font-size: 2.8em;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+        }
+
+        .introduccion-presentacion h1 span {
+            color: #FFFFFF;
+            border-bottom: 4px solid #2E6F40;
+        }
+
+        .aprender-mas {
+            display: inline-block;
+            background-color: #2E6F40;
+            color: #FFFFFF;
+            padding: 12px 25px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .aprender-mas:hover {
+            background-color: #FFFFFF;
+            color: #2E6F40;
+        }
+
+        /* Enlace contenedor para la imagen de incendio */
+        .enlace-incendio-img {
+            display: block;
+            transition: transform 0.2s ease;
+        }
+        .enlace-incendio-img:hover {
+            transform: scale(1.02);
+        }
+
+        /* --- Acceso Rápido --- */
+        .acceso-rapido {
+            background-color: #FFFFFF;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .acceso-rapido h2 {
+            color: #2E6F40;
+            margin-bottom: 30px;
+        }
+
+        .acceso-rapido ul {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .acceso-rapido figure {
+            margin: 0;
+        }
+
+        .acceso-rapido figcaption h3 a {
+            color: #D9531E;
+        }
+
+        .acceso-rapido figcaption h3 a:hover {
+            color: #2E6F40;
+        }
+
+        /* --- Bloque de Contenido (Artículos y Sidebar) --- */
+        .bloque-contenido {
+            padding: 40px 0;
+            background-color: #FDFDFD;
+        }
+
+        .bloque-contenido .contenedor {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .articulos {
+            width: 65%;
+        }
+
+        .articulos h2 {
+            color: #0F62AC; 
+            border-bottom: 3px solid #0F62AC;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .articulos article {
+            margin-bottom: 40px;
+            overflow: hidden; 
+        }
+
+        .articulos article img {
+            float: left;
+            margin-right: 20px;
+            margin-bottom: 15px;
+            width: 280px;
+            height: auto;
+        }
+
+        .articulos article h1 {
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+
+        .articulos article h1 a {
+            color: #0F62AC;
+            text-decoration: underline;
+        }
+
+        .articulos article h1 a:hover {
+            color: #D9531E;
+        }
+
+        .articulos article p {
+            line-height: 1.6;
+            text-align: justify;
+            margin-top: 5px;
+        }
+
+        /* --- Barra Lateral --- */
+        .complementario {
+            width: 30%;
+            background-color: #0F62AC;
+            padding: 25px 20px;
+            box-sizing: border-box;
+            height: fit-content;
+            color: #FFFFFF;
+            border-radius: 4px;
+        }
+
+        .complementario h2 {
+            color: #FFFFFF;
+            margin-top: 0;
+            font-size: 1.8em;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .complementario ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .complementario ul li {
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-evento {
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            font-size: 1.05em;
+            font-family: inherit;
+            cursor: pointer;
+            padding: 8px 0;
+            text-align: left;
+            width: 100%;
+            display: block;
+            font-weight: normal;
+            transition: all 0.3s ease;
+        }
+
+        .btn-evento:hover {
+            color: #FFF5F2;
+            font-weight: bold;
+            padding-left: 8px;
+        }
+
+        .info-evento-box {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-left: 4px solid #FFFFFF;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .info-evento-box h4 {
+            margin: 0 0 8px 0;
+            color: #FFFFFF;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-evento-box p {
+            margin: 0 0 10px 0;
+            font-size: 0.95em;
+            line-height: 1.5;
+            color: #FFFFFF;
+            text-align: justify;
+        }
+
+        .info-evento-box a {
+            color: #FFFFFF;
+            text-decoration: underline;
+            font-size: 0.9em;
+            display: inline-block;
+            transition: opacity 0.2s;
+        }
+
+        .info-evento-box a:hover {
+            opacity: 0.8;
+            color: #FFF5F2;
+        }
+
+        /* --- Sección Suscripción / Ayuda --- */
+        .suscripcion {
+            background-color: #EEEEEE;
+            color: #333333;
+            padding: 25px 0;
+            border-top: 2px solid #D9531E;
+        }
+
+        .suscripcion .contenedor {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .suscripcion h2 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #555555;
+            font-weight: normal;
+        }
+
+        .suscripcion form {
+            display: flex;
+            align-items: center;
+        }
+
+        .suscripcion input[type="text"],
+        .suscripcion input[type="email"] {
+            padding: 10px;
+            border: 1px solid #CCCCCC;
+            margin-right: 15px;
+            width: 230px;
+            font-size: 0.95em;
+        }
+
+        .suscripcion input[type="submit"] {
+            background-color: #0F62AC;
+            color: #FFFFFF;
+            padding: 10px 25px;
+            border: none;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .suscripcion input[type="submit"]:hover {
+            background-color: #2E6F40;
+        }
+
+        /* --- Pie de Página --- */
+        .piedepagina {
+            background-color: #333333;
+            color: #FFFFFF;
+            font-size: 0.95em;
+        }
+
+        .piedepagina .barra-roja-azul {
+            display: flex;
+            background-color: #0000FF; 
+            height: 35px;
+            line-height: 35px;
+            font-weight: bold;
+        }
+
+        .piedepagina .bloque-rojo {
+            background-color: #E50000; 
+            width: 25%;
+            padding-left: 7.5%;
+            box-sizing: border-box;
+            white-space: nowrap;
+        }
+
+        .piedepagina .barra-azul-navegacion {
+            width: 75%;
+            display: flex;
+            justify-content: flex-end; 
+            padding-right: 7.5%;
+            box-sizing: border-box;
+        }
+
+        .piedepagina .barra-azul-navegacion ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .piedepagina .barra-azul-navegacion ul li {
+            margin-left: 25px;
+        }
+
+        .piedepagina .barra-azul-navegacion ul li button {
+            background: none;
+            border: none;
+            color: #FFFFFF; 
+            font-weight: normal;
+            font-size: 1em;
+            font-family: inherit;
+            cursor: pointer;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        .piedepagina .barra-azul-navegacion ul li button:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Redes Sociales Flotantes --- */
+        .social {
+            position: fixed;
+            bottom: 50px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #D9531E;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            gap: 10px;
+            z-index: 999;
+        }
+
+        .social img {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+
+ <header class="encabezado" role="banner">
+    <div class="contenedor">
+        <a href="https://www.cbachilleres.edu.mx/" target="_blank" class="logo">
+            <img src="imagen/logo_prevencionn.png" alt="Logo Prevención Incendios">
+        </a>
+        <nav role="navigation">
+            <ul>
+                <li><a href="https://www.cbachilleres.edu.mx/" target="_blank">Nosotros</a></li>
+                <li><a href="#" onclick="mostrarInfo('horarios_atencion'); return false;">Servicio</a></li>
+                <li><a href="https://311locatel.cdmx.gob.mx/" target="_blank">Contáctanos</a></li>
+            </ul>
+        </nav>
+    </div>
+ </header>
+
+ <div class="presentacion">
+    <div class="contenedor">
+        <div class="introduccion-presentacion">
+            <h1>Incendios Forestales<br><span>cdmx</span></h1>
+            <a href="https://www.unam.mx/" target="_blank" class="aprender-mas">Reportar Incendio</a>
+        </div>
+        <a href="https://www.bomberos.cdmx.gob.mx/" target="_blank" class="enlace-incendio-img" title="Visitar Bomberos CDMX">
+            <img src="imagen/incendioo.png" alt="Prevención de bosques - Héroes Bomberos CDMX">
+        </a>
+    </div>
+ </div> 
+
+ <section class="acceso-rapido">
+        <div class="contenedor">
+            <h2>Acceso rápido</h2>
+            <ul>
+                <li>
+                    <figure>
+                        <a href="https://www.cbachilleres.edu.mx/" target="_blank"><img src="imagen/icono1.jpg" alt="Nosotros"></a>
+                        <figcaption><h3><a href="https://www.cbachilleres.edu.mx/" target="_blank">Nosotros</a></h3></figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <a href="#" onclick="mostrarInfo('horarios_atencion'); return false;"><img src="imagen/icono2.jpg" alt="Servicio"></a>
+                        <figcaption><h3><a href="#" onclick="mostrarInfo('horarios_atencion'); return false;">Servicio</a></h3></figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <a href="https://maps.google.com" target="_blank"><img src="imagen/icono3.jpg" alt="Ubícanos"></a>
+                        <figcaption><h3><a href="https://maps.google.com" target="_blank">Ubícanos</a></h3></figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <a href="https://311locatel.cdmx.gob.mx/" target="_blank"><img src="imagen/icono4.jpg" alt="Contáctanos"></a>
+                        <figcaption><h3><a href="https://311locatel.cdmx.gob.mx/" target="_blank">Contáctanos</a></h3></figcaption>
+                    </figure>
+                </li>
+            </ul>
+        </div>
+    </section>  
+
+    <div class="bloque-contenido">
+        <div class="contenedor">
+            <main class="articulos" role="main">
+                <h2>Ultimas noticias</h2>
+                
+                <article>
+                    <img src="imagen/causass.png" alt="Causa">
+                    <h1><a href="https://repositorio.unam.mx/" target="_blank">Causas</a></h1>
+                    <p>Causas de los Incendios Forestales</p>
+                    <p><strong>Actividad Humana:</strong> Son la causa de la gran mayoría de los incendios, destacando las quemas agrícolas descontroladas, fogatas o colillas mal apagadas e incendios intencionados para el cambio ilegal de uso de suelo.</p>
+                    <p>Factores Climáticos: Las sequías prolongadas, altas temperaturas y vientos fuertes reducen la humedad de la vegetación y aceleran la propagación destructiva del fuego.</p>
+                    <p>Requisitos del Fuego: El fenómeno requiere obligatoriamente de la combinación de calor, oxígeno y vegetación seca para poder manifestarse.</p>
+                    <p>Impacto Geográfico: Afecta principalmente a las zonas boscosas y de matorrales del país durante las temporadas de estiaje y altas temperaturas.</p>
+                </article>
+                
+                <article>
+                    <img src="imagen/problematicaa.jpg" alt="Problema">
+                    <h1><a href="https://www.unam.mx/" target="_blank">Problema Social</a></h1>
+                    <p>Las consecuencias van mucho más allá de la pérdida de árboles, convirtiéndose en una crisis para las personas: Salud Pública: El humo deteriora gravemente la calidad del aire, provocando problemas respiratorios y cardiovasculares tanto en comunidades cercanas como en zonas urbanas. Crisis Económica: Las comunidades rurales pierden sus cultivos, ganado y fuentes de empleo, lo que aumenta la pobreza y llega a forzar el desplazamiento de familias. Escasez de Agua y Deslaves: Al destruirse el bosque, el suelo pierde la capacidad de absorber el agua de lluvia para llenar los mantos acquíferos, lo que provoca escasez de agua y aumenta el riesgo de deslaves peligrosos.</p>
+                </article>
+
+                <article>
+                    <img src="imagen/solucioness.jpg" alt="soluciones">
+                    <h1><a href="https://www.ipn.mx/" target="_blank">Posibles soluciones</a></h1>
+                    <p>El combate y la prevención necesitan la colaboración de todos: <strong>Regulación Agrícola:</strong> Capacitar a los agricultores para usar alternativas al fuego o asegurar que realicen quemas controladas con brechas cortafuego y aviso previo. <strong>Concientización Ciudadana:</strong> Educar a la población para evitar dejar basura, botellas de vidrio (efecto lupa) o fogatas encendidas al visitar zonas forestales. <strong>Tecnología y Monitoreo:</strong> Usar alertas satelitales y torres de vigilancia para detectar el humo a tiempo, permitiendo que las brigadas actúen antes de que el fuego se vuelva incontrolable. <strong>Apoyo a Brigadistas:</strong> Equipar mejor a los bomberos forestales y organizar jornadas comunitarias para reforestar de forma planificada las zonas afectadas.</p>
+                </article>
+            </main>
+
+            <aside class="complementario" role="complementary">
+                <h2>Proximos eventos</h2>
+                <ul>
+                    <li><button class="btn-evento" onclick="mostrarInfo('algunos')">📅 Algunos eventos</button></li>
+                    <li><button class="btn-evento" onclick="mostrarInfo('charlas')">📅 Charlas informativas</button></li>
+                    <li><button class="btn-evento" onclick="mostrarInfo('voluntariado')">📅 Voluntariado en reforestacion</button></li>
+                    <li><button class="btn-evento" onclick="mostrarInfo('limpieza')">📅 Limpieza de bosques</button></li>
+                    <li><button class="btn-evento" onclick="mostrarInfo('foros')">📅 Foros</button></li>
+                    <li><button class="btn-evento" onclick="mostrarInfo('ayuda')">📅 Ayuda</button></li>
+                    <li><button class="btn-evento" onclick="mostrarInfo('informacion')">📅 Información</button></li>
+                </ul>
+
+                <div class="info-evento-box" id="box-evento">
+                    <h4 id="titulo-evento">Selecciona un evento</h4>
+                    <p id="desc-evento">Haz clic en cualquiera de los eventos de la lista de arriba o en las opciones del menú y pie de página para desplegar la información correspondiente aquí.</p>
+                    <a href="#" id="enlace-evento" target="_blank" style="display: none;">➜ Saber más en fuente institucional</a>
+                </div>
+            </aside>
+        </div>
+    </div> 
+
+<section class="suscripcion">
+    <div class="contenedor">
+        <h2>Informa sobre un incendio</h2>
+        <form action="#">
+            <input type="text" name="nombre" placeholder="Ingresa tu nombre..." required>
+            <input type="email" name="email" placeholder="Ingresa tu correo..." required>
+            <input type="submit" name="valor" value="Registrate">
+        </form>
+    </div>
+</section>
+
+<footer class="piedepagina" role="contentinfo">
+    <div class="barra-roja-azul">
+        <div class="bloque-rojo">
+            Copyright @ 2026 incendios
+        </div>
+        <div class="barra-azul-navegacion">
+            <nav>
+                <ul>
+                    <li><button onclick="mostrarInfo('politicas')">Politicas del sitio</button></li>
+                    <li><button onclick="mostrarInfo('preguntas')">Preguntas frecuentes</button></li>
+                    <li><button onclick="mostrarInfo('contactanos_pie')">Contactanos</button></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</footer>
+
+<div class="social">
+    <a href="https://www.facebook.com/" target="_blank" title="FaceBook"><img src="imagen/face.jpg" alt="facebook"></a>
+    <a href="https://www.youtube.com/" target="_blank" title="Youtube"><img src="imagen/you.jpg" alt="youtube"></a>
+    <a href="https://x.com/" target="_blank" title="Twitter / X"><img src="imagen/twit.jpg" alt="twitter"></a>
+</div>
+
+<script>
+    function mostrarInfo(tipo) {
+        const titulo = document.getElementById('titulo-evento');
+        const desc = document.getElementById('desc-evento');
+        const enlace = document.getElementById('enlace-evento');
+        const cajaInfo = document.getElementById('box-evento');
+        
+        const infoEventos = {
+            algunos: {
+                titulo: "Algunos eventos",
+                desc: "Calendario General CDMX: Ciclo de actividades vecinales distribuidas en las alcaldías de Tlalpan, Milpa Alta y Xochimilco para el resguardo y monitoreo forestal urbano durante la temporada de estiaje.",
+                url: "https://www.sedema.cdmx.gob.mx/"
+            },
+            charlas: {
+                titulo: "Charlas informativas",
+                desc: "Pláticas y ponencias sobre el cuidado del suelo de conservación, organizadas por investigadores de la UNAM, analizando las regulaciones locales para mitigar incendios en áreas naturales protegidas.",
+                url: "https://repositorio.unam.mx/"
+            },
+            voluntariado: {
+                titulo: "Voluntariado en reforestacion",
+                desc: "Jornadas comunitarias de fin de semana coordinadas por brigadas ambientales oficiales. Actividades dirigidas a la plantación planificada de árboles nativos de la región durante este ciclo estacional.",
+                url: "https://www.gob.mx/conafor"
+            },
+            limpieza: {
+                titulo: "Limpieza de bosques",
+                desc: "Retiro masivo de residuos sólidos, plásticos y fragmentos de vidrio acumulados en senderos turísticos periféricos, con el objetivo directo de erradicar los factores que inician incendios por el 'efecto lupa'.",
+                url: "https://www.ipn.mx/"
+            },
+            foros: {
+                titulo: "Foros académicos",
+                desc: "Mesas de diálogo y conversación comunitaria con especialistas en cambio climático e ingenieros forestales para establecer redes ciudadanas eficientes de alerta temprana ante emergencias.",
+                url: "https://www.unam.mx/"
+            },
+            ayuda: {
+                titulo: "Canales de Ayuda",
+                desc: "Acceso a manuales técnicos oficiales de prevención ciudadana, protocolos vecinales de evacuación y capacitación básica de brigadistas comunitarios validados por Protección Civil de la CDMX.",
+                url: "https://311locatel.cdmx.gob.mx/"
+            },
+            informacion: {
+                titulo: "Información y Monitoreo",
+                desc: "Consulta de estatus climáticos semanales, mapas actualizados de riesgo activo por calor extremo e índices de calidad del aire emitidos por el Sistema de Monitoreo Atmosférico de la CDMX.",
+                url: "https://www.sedema.cdmx.gob.mx/"
+            },
+            politicas: {
+                titulo: "Políticas del sitio",
+                desc: "Este portal web institucional está enfocado exclusivamente en la difusión de contenido educativo, informativo y de concientización ambiental. Todos los datos de registro recopilados en el formulario de alertas se procesan bajo estrictos lineamientos de privacidad preventiva.",
+                url: "https://www.sedema.cdmx.gob.mx/"
+            },
+            preguntas: {
+                titulo: "Preguntas frecuentes",
+                desc: "¿Cómo reporto un incendio? Llama inmediatamente al 911 o usa Locatel. ¿Qué es el 'efecto lupa'? Es el inicio de fuego producido por los rayos del sol al concentrarse a través de vidrios abandonados en la maleza.",
+                url: "https://www.gob.mx/conafor"
+            },
+            contactanos_pie: {
+                titulo: "Contáctanos",
+                desc: "Para asesorías institucionales, propuestas de proyectos ambientales en tu comunidad o dudas sobre los talleres de monitoreo, puedes comunicarte utilizando la plataforma gubernamental Locatel marcando al *0311.",
+                url: "https://311locatel.cdmx.gob.mx/"
+            },
+            /* --- NUEVA INFORMACIÓN RELACIONADA AL HORARIO DE EMERGENCIAS --- */
+            horarios_atencion: {
+                titulo: "Horarios de Emergencia y Marcación",
+                desc: "Líneas de Atención Inmediata CDMX: \n• Emergencias (Bomberos y Protección Civil): Abierto las 24 horas, los 365 días del año llamando directamente al 911.\n• Reportes CONAFOR: Atendiendo contingencias las 24 horas al 800 737 0000.\n• Módulos Informativos de Brigadas: Lunes a Viernes de 09:00 a 18:00 hrs.",
+                url: "https://www.bomberos.cdmx.gob.mx/"
+            }
+        };
+
+        if(infoEventos[tipo]) {
+            cajaInfo.style.opacity = 0;
+            
+            setTimeout(() => {
+                titulo.innerText = infoEventos[tipo].titulo;
+                desc.innerText = infoEventos[tipo].desc;
+                enlace.href = infoEventos[tipo].url;
+                enlace.style.display = "inline-block";
+                cajaInfo.style.opacity = 1;
+            }, 150);
+        }
+    }
+</script>
+
+</body>
+</html>

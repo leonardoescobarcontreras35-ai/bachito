@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Prevención de Incendios Forestales</title>
     <style>
-        
+        /* --- PALETA DE COLORES DE LAS CAPTURAS --- */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #FFFFFF;
@@ -14,13 +14,13 @@
         }
 
         a {
-            color: #D9531E;
+            color: #D9531E; /* Naranja Alerta */
             text-decoration: none;
             font-weight: bold;
         }
 
         a:hover {
-            color: #2E6F40; 
+            color: #2E6F40; /* Verde Bosque */
         }
 
         .contenedor {
@@ -30,7 +30,7 @@
             overflow: hidden;
         }
 
-        
+        /* --- Encabezado (Header) --- */
         .encabezado {
             background-color: #2E6F40;
             padding: 15px 0;
@@ -65,7 +65,7 @@
             color: #FFFFFF;
         }
 
-        
+        /* --- Sección Presentation (Hero) --- */
         .presentacion {
             background-color: #D9531E;
             color: #FFFFFF;
@@ -103,7 +103,7 @@
             color: #2E6F40;
         }
 
-        
+        /* Enlace contenedor para la imagen de incendio */
         .enlace-incendio-img {
             display: block;
             transition: transform 0.2s ease;
@@ -112,7 +112,7 @@
             transform: scale(1.02);
         }
 
-        
+        /* --- Acceso Rápido --- */
         .acceso-rapido {
             background-color: #FFFFFF;
             padding: 30px 0;
@@ -143,7 +143,7 @@
             color: #2E6F40;
         }
 
-        
+        /* --- Bloque de Contenido (Artículos y Sidebar) --- */
         .bloque-contenido {
             padding: 40px 0;
             background-color: #FDFDFD;
@@ -198,7 +198,7 @@
             margin-top: 5px;
         }
 
-        
+        /* --- Barra Lateral --- */
         .complementario {
             width: 30%;
             background-color: #0F62AC;
@@ -287,7 +287,7 @@
             color: #FFF5F2;
         }
 
-        
+        /* --- Sección Suscripción / Ayuda --- */
         .suscripcion {
             background-color: #EEEEEE;
             color: #333333;
@@ -336,7 +336,7 @@
             background-color: #2E6F40;
         }
 
-        
+        /* --- Pie de Página --- */
         .piedepagina {
             background-color: #333333;
             color: #FFFFFF;
@@ -394,7 +394,7 @@
             text-decoration: underline;
         }
 
-        
+        /* --- Redes Sociales Flotantes --- */
         .social {
             position: fixed;
             bottom: 50px;
@@ -527,11 +527,11 @@
 <section class="suscripcion">
     <div class="contenedor">
         <h2>Informa sobre un incendio</h2>
-        <form action="https://formspree.io/f/mlgybwpo"
-  method="POST">
-            <input type="text" name="nombre" placeholder="Ingresa tu nombre..." required>
+        <!-- Formulario completamente integrado con Formspree -->
+        <form action="https://formspree.io/f/mlgybwpo" method="POST">
+            <input type="text" name="name" placeholder="Ingresa tu nombre..." required>
             <input type="email" name="email" placeholder="Ingresa tu correo..." required>
-            <input type="submit" name="valor" value="Registrate">
+            <input type="submit" value="Registrate">
         </form>
     </div>
 </section>
@@ -545,7 +545,7 @@
             <nav>
                 <ul>
                     <li><button onclick="mostrarInfo('politicas')">Politicas del sitio</button></li>
-                    <li><button onclick="mostrarInfo('preguntas')">Preguntas frecuentes</button></li>
+                    <li><button onclick="scientific_question'preguntas')">Preguntas frecuentes</button></li>
                     <li><button onclick="mostrarInfo('contactanos_pie')">Contactanos</button></li>
                 </ul>
             </nav>
@@ -617,7 +617,6 @@
                 desc: "Para asesorías institucionales, propuestas de proyectos ambientales en tu comunidad o dudas sobre los talleres de monitoreo, puedes comunicarte utilizando la plataforma gubernamental Locatel marcando al *0311.",
                 url: "https://311locatel.cdmx.gob.mx/"
             },
-            /* --- NUEVA INFORMACIÓN RELACIONADA AL HORARIO DE EMERGENCIAS --- */
             horarios_atencion: {
                 titulo: "Horarios de Emergencia y Marcación",
                 desc: "Líneas de Atención Inmediata CDMX: \n• Emergencias (Bomberos y Protección Civil): Abierto las 24 horas, los 365 días del año llamando directamente al 911.\n• Reportes CONAFOR: Atendiendo contingencias las 24 horas al 800 737 0000.\n• Módulos Informativos de Brigadas: Lunes a Viernes de 09:00 a 18:00 hrs.",
